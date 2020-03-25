@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container" id="app">
+        <div class="row h100">
+            <div class="col-3 p0m0">
+                <div class="list-group list-group-flush menu-group">
+                    <div class="list-group-item">
+                        <img src="assets/basket.jpeg" class="group">
+                        <p class="text-center">Все</p>
+                    </div>
+                    <div class="list-group-item">
+                        <img src="assets/fruits.jpeg" class="group">
+                        <p class="text-center">Фрукты</p>
+                    </div>
+                    <div class="list-group-item">
+                        <img src="assets/bakery.jpeg" class="group">
+                        <p class="text-center">Хлебобулочные</p>
+                    </div>
+                    <div class="list-group-item">
+                        <img src="assets/dairy.jpeg" class="group">
+                        <p class="text-center">Молочные</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <div class="menu-products">
+                    <div class="card menu-product">
+                        <img src="assets/apple.jpg">
+                        <h4 class="text-center">Яблоки <span class="price">14.55</span></h4>
+                        <button class="btn btn-primary">Добавить в корзину</button>
+                    </div>
+
+                    <div class="card menu-product">
+                        <img src="assets/apple.jpg">
+                        <h4 class="text-center">Яблоки <span class="price">14.55</span></h4>
+                        <div class="btn-group">
+                            <button class="btn btn-danger">-</button>
+                            <button class="btn disabled">2</button>
+                            <button class="btn btn-success">+</button>
+                        </div>
+                    </div>
+
+                    <div class="card menu-product">
+                        <img src="assets/pear.jpg">
+                        <h4 class="text-center">Груша <span class="price">15.77</span></h4>
+                        <button class="btn btn-primary">Добавить в корзину</button>
+                    </div>
+
+                    <div class="card menu-product">
+                        <img src="assets/orange.jpg">
+                        <h4 class="text-center">Апельсин <span class="price">18.20</span></h4>
+                        <button class="btn btn-primary">Добавить в корзину</button>
+                    </div>
+
+                    <div class="card menu-product">
+                        <img src="assets/bread.jpg">
+                        <h4 class="text-center">Хлеб <span class="price">9.12</span></h4>
+                        <button class="btn btn-primary">Добавить в корзину</button>
+                    </div>
+
+                    <div class="card menu-product">
+                        <img src="assets/bun.jpg">
+                        <h4 class="text-center">Булочка <span class="price">12.21</span></h4>
+                        <button class="btn btn-primary">Добавить в корзину</button>
+                    </div>
+
+                    <div class="card menu-product">
+                        <img src="assets/banana.jpg">
+                        <h4 class="text-center">Банан <span class="price">20.32</span></h4>
+                        <button class="btn btn-primary">Добавить в корзину</button>
+                    </div>
+
+                    <div class="card menu-product">
+                        <img src="assets/pigtail.jpg">
+                        <h4 class="text-center">Косички <span class="price">11.15</span></h4>
+                        <button class="btn btn-primary">Добавить в корзину</button>
+                    </div>
+                    <div class="card menu-product">
+                        <img src="assets/milk.jpg">
+                        <h4 class="text-center">Молоко <span class="price">20.22</span></h4>
+                        <button class="btn btn-primary">Добавить в корзину</button>
+                    </div>
+
+                    <div class="card menu-product">
+                        <img src="assets/sweetcheese.jpg">
+                        <h4 class="text-center">Сырок <span class="price">7.42</span></h4>
+                        <button class="btn btn-primary">Добавить в корзину</button>
+                    </div>
+
+                    <div class="card menu-product">
+                        <img src="assets/cheese.jpg">
+                        <h4 class="text-center">Сыр <span class="price">24.23</span></h4>
+                        <button class="btn btn-primary">Добавить в корзину</button>
+                    </div>
+                </div>
+                <div class="basket">
+                    <button class="btn btn-success" disabled>Ваша корзина пуста</button>
+                </div>
+                <div class="basket">
+                    <span>Колличество товаров : 10</span>
+                    <button class="btn btn-success">Купить за 208 рублей</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="database.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
