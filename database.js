@@ -40,7 +40,7 @@
           }
       }
       throw Error(`Продукта с id ${productId} нет в базе данных`);
-  }
+  };
 
   api.getCategoryById = function  getCategoryById (categoryId) {
     for(const category of database.categories ){
@@ -49,7 +49,40 @@
         }
     }
     throw Error(`Категории с id ${categoryId} нет в базе данных`);
-}
+  };
+
+  api.getAllCategories = function getAllCategories () {
+    return getCopy(database.categories);
+  }
+
+  api.getAllProductsByCategoryId = function getAllProductsByCategoryId (categoryId) {
+    let category = null;
+
+    for (const item of database.categories) {
+      if (item.id === categoryId) {
+        category = item;
+        break;
+      }
+    }
+
+    if (!category) {
+      throw Error(`Категории с id ${categoryId} нет в базе данных`);
+    }
+
+    // const products = database.products.filter(product => category.productsId.includes(product.id));
+    const products = [];
+
+    for (const product of database.products) {
+      if (category.productsId.includes(product.id)) {
+        products.push(product);
+      }
+    }    
+    return getCopy(products);
+  }
+
+  api.getBasket = function getBasket () {
+    return getCopy(database.basket);
+  }
 
   window.database = api;
 
