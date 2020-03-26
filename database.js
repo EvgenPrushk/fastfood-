@@ -21,7 +21,7 @@
     ],
 
     basket: {
-      products: [
+      products: [ 
         {
           productId: 1,
           count: 1,
@@ -30,9 +30,32 @@
     }
   };
 
-  const api = {};
+  const api = {
+     
+  };
+  api.getProductById = function  getProductById (productId) {
+      for(const product of database.products ){
+          if (product.id === productId) {
+              return getCopy(product);
+          }
+      }
+      throw Error(`Продукта с id ${productId} нет в базе данных`);
+  }
+
+  api.getCategoryById = function  getCategoryById (categoryId) {
+    for(const category of database.categories ){
+        if (category.id === categoryId) {
+            return getCopy(category);
+        }
+    }
+    throw Error(`Категории с id ${categoryId} нет в базе данных`);
+}
 
   window.database = api;
+
+  function getCopy(obj) {
+      return JSON.parse(JSON.stringify(obj));
+  }
 })();
 
 
