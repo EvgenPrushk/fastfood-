@@ -17,7 +17,7 @@
     <div class="container" id="app">
         <div class="row h100">
             <div class="col-3 p0m0">
-                <div class="list-group list-group-flush menu-group">
+                <div class="list-group list-group-flush menu-group" data-menu-groups>
                     <div class="list-group-item">
                         <img src="assets/basket.jpeg" class="group">
                         <p class="text-center">Все</p>
@@ -37,8 +37,8 @@
                 </div>
             </div>
 
-            <div class="col-9">
-                <div class="menu-products">
+            <div class="col-9 ">
+                <div class="menu-products" data-menu-products>
                     <div class="card menu-product">
                         <img src="assets/apple.jpg">
                         <h4 class="text-center">Яблоки <span class="price">14.55</span></h4>
@@ -118,6 +118,7 @@
             </div>
         </div>
     </div>
+
     <template data-product-card>    
             <div class="card menu-product">
                 <img src="%IMAGE%">
@@ -125,6 +126,14 @@
                 <button class="btn btn-primary">Добавить в корзину</button>
             </div>
     </template>
+
+    <template data-menu-group>    
+        <div class="list-group-item">
+            <img src="%IMAGE%" class="group">
+            <p class="text-center">%LABEL%</p>
+        </div>
+</template>
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
