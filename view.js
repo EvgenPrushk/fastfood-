@@ -36,3 +36,14 @@ function updateMenuGroups(...groups) {
     menuGroupsElement.innerHTML = '';
     menuGroupsElement.append(...groups);
 }
+
+function updateBasketBar (backet) {
+    const emptyElement = document.querySelector('[data-basket-empty]');
+    const fullElement = document.querySelector('[data-basket-full]');
+    emptyElement.style.display = 'none';
+    fullElement.style.display = 'none';
+
+    if (backet.products.length === 0) {
+        emptyElement.style.display = '';
+    }
+}

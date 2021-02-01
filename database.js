@@ -89,10 +89,8 @@
     ],
 
     basket: {
-      products: [{
-        productId: 1,
-        count: 1,
-      }]
+      totalCoast: 0, 
+      products: [],
     }
   };
 
