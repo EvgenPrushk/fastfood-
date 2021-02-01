@@ -3,6 +3,7 @@ function getProductCard (product) {
     const domElement = document.createElement('div');
    // вставка служебной информации в '%IMAGE%, '%LABEL%, %PRICE%
     domElement.innerHTML = template
+        .replace('%ID%', product.id)
         .replace('%IMAGE%', product.image)
         .replace('%LABEL%', product.label)
         .replace('%PRICE%', product.price);    
@@ -15,6 +16,7 @@ function getMenuGroupElement (product) {
     const template = document.querySelector('[data-menu-group]').innerHTML;
     const domElement = document.createElement('div');
     domElement.innerHTML = template
+    .replace('%ID%', product.id)
     .replace('%IMAGE%', product.image)
     .replace('%LABEL%', product.label);    
 

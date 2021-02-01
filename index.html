@@ -18,7 +18,7 @@
         <div class="row h100">
             <div class="col-3 p0m0">
                 <div class="list-group list-group-flush menu-group" data-menu-groups>
-                    <div class="list-group-item">
+                    <!-- <div class="list-group-item">
                         <img src="assets/basket.jpeg" class="group">
                         <p class="text-center">Все</p>
                     </div>
@@ -33,7 +33,7 @@
                     <div class="list-group-item">
                         <img src="assets/dairy.jpeg" class="group">
                         <p class="text-center">Молочные</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -120,7 +120,7 @@
     </div>
 
     <template data-product-card>    
-            <div class="card menu-product">
+            <div class="card menu-product" data-product-id="%ID%">
                 <img src="%IMAGE%">
                 <h4 class="text-center">%LABEL% <span class="price">%PRICE%</span></h4>
                 <button class="btn btn-primary">Добавить в корзину</button>
@@ -128,7 +128,7 @@
     </template>
 
     <template data-menu-group>    
-        <div class="list-group-item">
+        <div class="list-group-item" data-group-id="%ID%">
             <img src="%IMAGE%" class="group">
             <p class="text-center">%LABEL%</p>
         </div>
