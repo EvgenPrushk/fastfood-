@@ -18,6 +18,16 @@ function init() {
   updateMenuProducts(...productCards);
 
   updateBasketBar(database.getBasket());
+  // используем всплытие, чтобы прослушивать только 1 объект
+  document.body.addEventListener('click', event => {
+  
+    if (!event.target.hasAttribute('data-add-to-basket')) {
+      return
+    }
+    // получаем id у родительского элемента div
+    const productId = parseInt(event.target.parentElement.getAttribute('data-product-id'))
+    database.addItemToBasket(productId);
+  })
 }
 
 function groupElementClickHandler() {
@@ -31,5 +41,3 @@ function groupElementClickHandler() {
 
   updateMenuProducts(...productCards);
 }
-
-//11-00

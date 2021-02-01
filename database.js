@@ -89,7 +89,7 @@
     ],
 
     basket: {
-      totalCoast: 0, 
+      totalCoast: 0,
       products: [],
     }
   };
@@ -149,9 +149,34 @@
     return getCopy(database.basket);
   }
 
+  api.addItemToBasket = function addItemToBasket(productId) {
+    //  проходимся по всем элементам находящимся в карзине
+    let exsist = false;
+    for (const product of database.basket.products) {
+      
+      // если имеется совпадение, то увеличивем count на единицу
+      if (product.productId === productId) {
+        exsist = true;
+        product.count++;
+        break;
+      }
+    }
+
+    if (!exsist) {
+      const item = {
+        productId,
+        count: 1,
+      }
+    
+      database.basket.products.push(item);
+    }
+    console.log(database.basket);
+  }
+
   window.database = api;
 
   function getCopy(obj) {
     return JSON.parse(JSON.stringify(obj));
   }
 })();
+//21-00
