@@ -27,16 +27,16 @@ img.group {
 }
 
 .list-group-item {
-
     padding: 0;
 }
 
 .menu-group {
     height: 100vh;
-    overflow-x: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-.menu-products{
+.menu-products {
     display: flex;
     flex-wrap: wrap;
     padding: 0;
@@ -49,26 +49,26 @@ img.group {
 
 .menu-product {
     width: 200px;
-    margin: 3px;    
+    margin: 3px;
 }
 
 .menu-product > img {
     margin: 0 auto;
     width: 150px;
-    margin: 150px;    
+    height: 150px;
 }
 
 .price {
     color: gray;
-    font-style: 20px;
+    font-size: 20px;
 }
 
 .price::before {
     content: '(';
 }
 
-.price::before {
-    content: 'p.)';
+.price::after {
+    content: 'р.)';
 }
 
 .basket {

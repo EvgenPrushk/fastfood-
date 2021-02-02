@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <div class="col-9 ">
+            <div class="col-9">
                 <div class="menu-products" data-menu-products>
                     <!-- <div class="card menu-product">
                         <img src="assets/apple.jpg">
@@ -112,8 +112,8 @@
                     <button class="btn btn-success" disabled>Ваша корзина пуста</button>
                 </div>
                 <div class="basket" data-basket-full>
-                    <span>Колличество товаров : 10</span>
-                    <button class="btn btn-success">Купить за 208 рублей</button>
+                    <span>Колличество товаров : <span data-basket-counts></span></span>
+                    <button class="btn btn-success">Купить за <span data-basket-totalcost>р.</span></button>
                 </div>
             </div>
         </div>
@@ -132,7 +132,17 @@
             <img src="%IMAGE%" class="group">
             <p class="text-center">%LABEL%</p>
         </div>
-</template>
+    </template data-product-card-smart>
+
+    <div class="card menu-product">
+        <img src="assets/apple.jpg">
+        <h4 class="text-center">Яблоки <span class="price">14.55</span></h4>
+        <div class="btn-group">
+            <button class="btn btn-danger">-</button>
+            <button class="btn disabled">2</button>
+            <button class="btn btn-success">+</button>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">

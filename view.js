@@ -1,25 +1,25 @@
-function getProductCard (product) {
+function getProductCard(product) {
     const template = document.querySelector('[data-product-card]').innerHTML;
-    const domElement = document.createElement('div');   
-    
-   // вставка служебной информации в '%IMAGE%, '%LABEL%, %PRICE%
+    const domElement = document.createElement('div');
+
+    // вставка служебной информации в '%IMAGE%, '%LABEL%, %PRICE%
     domElement.innerHTML = template
         .replace('%ID%', product.id)
         .replace('%IMAGE%', product.image)
         .replace('%LABEL%', product.label)
-        .replace('%PRICE%', numberToPrice(product.price));    
+        .replace('%PRICE%', numberToPrice(product.price));
 
-    return  domElement.firstElementChild
+    return domElement.firstElementChild
 }
 
 // вставляет группы
-function getMenuGroupElement (product) {
+function getMenuGroupElement(product) {
     const template = document.querySelector('[data-menu-group]').innerHTML;
     const domElement = document.createElement('div');
     domElement.innerHTML = template
-    .replace('%ID%', product.id)
-    .replace('%IMAGE%', product.image)
-    .replace('%LABEL%', product.label);    
+        .replace('%ID%', product.id)
+        .replace('%IMAGE%', product.image)
+        .replace('%LABEL%', product.label);
 
     return domElement.firstElementChild;
 }
@@ -38,14 +38,24 @@ function updateMenuGroups(...groups) {
     menuGroupsElement.append(...groups);
 }
 
-function updateBasketBar (backet) {
+function updateBasketBar(basket) {
     const emptyElement = document.querySelector('[data-basket-empty]');
     const fullElement = document.querySelector('[data-basket-full]');
     emptyElement.style.display = 'none';
     fullElement.style.display = 'none';
 
-    if (backet.products.length === 0) {
+    if (basket.products.length === 0) {
         emptyElement.style.display = '';
+    } else {
+        fullElement.style.display = '';
+        let counts = 0;
+        for (const product of basket.products) {
+            counts += product.count;
+        }
+        // document.querySelector('[data-basket-counts]')
+        // .textContent = basket.products.reduce((p, e) => p + e.count, 0);
+        document.querySelector('[data-basket-counts]').textContent = counts
+        document.querySelector('[data-basket-totalcost]').textContent = numberToPrice(basket.totalCoast);
     }
 }
 

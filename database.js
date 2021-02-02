@@ -38,19 +38,19 @@
       },
       {
         id: 7,
-        image: "assets/pigtail.jpg",
-        label: "Косички",
+        image: "assets/pigtail.png",
+        label: "Косичка",
         price: 1115
       },
       {
         id: 8,
-        image: "assets/milk.jpg",
+        image: "assets/milk.jpeg",
         label: "Молоко",
         price: 2022
       },
       {
         id: 9,
-        image: "assets/sweetcheee.jpg",
+        image: "assets/sweetcheese.jpg",
         label: "Сырок",
         price: 742
       },
@@ -70,7 +70,7 @@
       },
       {
         id: 2,
-        image: "assets/fruits.jpeg",
+        image: "assets/fruits.jpg",
         label: "Фрукты",
         productsId: [1, 2, 3, 6]
       },
@@ -82,7 +82,7 @@
       },
       {
         id: 4,
-        image: "assets/dairy.jpeg",
+        image: "assets/dairy.jpg",
         label: "Молочные",
         productsId: [8, 9, 10]
       },
