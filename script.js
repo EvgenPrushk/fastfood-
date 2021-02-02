@@ -1,3 +1,4 @@
+let currentGroupId = 1;
 init();
 
 function init() {
@@ -8,15 +9,17 @@ function init() {
   // добавление элементов
   updateMenuGroups(...groupElements);
 
-  for (const groupElement of groupElements) {
-    groupElement.addEventListener("click", groupElementClickHandler);
+  for (let i = 0; i < groups.length; i++) {
+    const groupElement = groupElements[i];
+    const group = groups[i];
+
+    // передаем id категории над которой произошел клик
+    groupElement.addEventListener("click", () => selectCategory(group.id));
   }
+  // загрузка категории изначально 1, где есть все карточки товара
+  selectCategory(currentGroupId);
 
-  const products = database.getAllProductsByCategoryId(1);
-  const productCards = products.map(getProductCard);
-
-  updateMenuProducts(...productCards);
-
+  // добавление элементов в саму корзину
   updateBasketBar(database.getBasket());
   // используем всплытие, чтобы прослушивать только 1 объект
   document.body.addEventListener('click', event => {
@@ -25,20 +28,27 @@ function init() {
       return
     }
     // получаем id у родительского элемента div
+    // добавляем непосредственно продукт по Id c обновлением состояния корзины
     const productId = parseInt(event.target.parentElement.getAttribute('data-product-id'))
     database.addItemToBasket(productId);
     updateBasketBar(database.getBasket());
+    selectCategory(currentGroupId);
   })
 }
 
-function groupElementClickHandler() {
+function selectCategory (groupId) {
   // получаем Id по какой категории мы кликнули
   // this ссылается на тот элемент / контекст над которым это событие произошло
   // позволяет использовать одну функцию на большое колличество дом элементов
-  const groupId = parseInt(this.getAttribute("data-group-id"));
+  //const groupId = parseInt(this.getAttribute("data-group-id"));
+  currentGroupId = groupId; //чтобы можно повторно вызвывать selectCategory
+  
+  const basket= database.getBasket();
 
   const products = database.getAllProductsByCategoryId(groupId);
-  const productCards = products.map(getProductCard);
+  const productCards = products.map(x => getProductCard(x));
+
+  //передача количества товара
 
   updateMenuProducts(...productCards);
 }

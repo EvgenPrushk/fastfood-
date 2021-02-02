@@ -1,15 +1,18 @@
-function getProductCard(product) {
-    const template = document.querySelector('[data-product-card]').innerHTML;
-    const domElement = document.createElement('div');
+function getProductCard(product, count = 0) {
+    if (count === 0) {
 
-    // вставка служебной информации в '%IMAGE%, '%LABEL%, %PRICE%
-    domElement.innerHTML = template
+        const template = document.querySelector('[data-product-card]').innerHTML;
+        const domElement = document.createElement('div');
+
+        // вставка служебной информации в '%IMAGE%, '%LABEL%, %PRICE%
+        domElement.innerHTML = template
         .replace('%ID%', product.id)
         .replace('%IMAGE%', product.image)
         .replace('%LABEL%', product.label)
         .replace('%PRICE%', numberToPrice(product.price));
 
-    return domElement.firstElementChild
+        return domElement.firstElementChild
+    }
 }
 
 // вставляет группы
