@@ -4,61 +4,61 @@
         id: 1,
         image: "assets/apple.jpg",
         label: "Яблоки",
-        price: 14.55
+        price: 1455
       },
       {
         id: 2,
         image: "assets/pear.jpg",
         label: "Груша",
-        price: 15.77
+        price: 1577
       },
       {
         id: 3,
         image: "assets/orange.jpg",
         label: "Апельсин",
-        price: 18.2
+        price: 182
       },
       {
         id: 4,
         image: "assets/bread.jpg",
         label: "Хлеб",
-        price: 9.12
+        price: 912
       },
       {
         id: 5,
         image: "assets/bun.jpg",
         label: "Булочка",
-        price: 12.21
+        price: 1221
       },
       {
         id: 6,
         image: "assets/banana.jpg",
         label: "Банан",
-        price: 20.32
+        price: 2032
       },
       {
         id: 7,
         image: "assets/pigtail.jpg",
         label: "Косички",
-        price: 11.15
+        price: 1115
       },
       {
         id: 8,
         image: "assets/milk.jpg",
         label: "Молоко",
-        price: 20.22
+        price: 2022
       },
       {
         id: 9,
         image: "assets/sweetcheee.jpg",
         label: "Сырок",
-        price: 7.42
+        price: 742
       },
       {
         id: 10,
         image: "assets/cheese.jpg",
         label: "Сыр",
-        price: 24.23
+        price: 2423
       },
     ],
 
@@ -171,6 +171,26 @@
       database.basket.products.push(item);
     }
     console.log(database.basket);
+
+    let totalCoast = 0;
+    // пройдемся по корзине, потом пройдемся по дате товаров
+    // for (const item of database.products) {
+    //   for (const product of database.products) {
+    //     if (item.productId === product.id) {
+    //       totalCoast += product.price * item.count;
+    //       break;
+    //     }
+    //   }
+    // }
+
+    for (const item of database.basket.products) {
+      const product = database.products.find(x => x.id === item.productId);
+      totalCoast += product.price * item.count;
+    }
+
+    // добаввляем в базу сумму;
+    database.basket.totalCoast = totalCoast;
+      console.log(database.basket);
   }
 
   window.database = api;
@@ -179,4 +199,3 @@
     return JSON.parse(JSON.stringify(obj));
   }
 })();
-//21-00

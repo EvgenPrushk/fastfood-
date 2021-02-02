@@ -27,6 +27,7 @@ function init() {
     // получаем id у родительского элемента div
     const productId = parseInt(event.target.parentElement.getAttribute('data-product-id'))
     database.addItemToBasket(productId);
+    updateBasketBar(database.getBasket());
   })
 }
 

@@ -1,12 +1,13 @@
 function getProductCard (product) {
     const template = document.querySelector('[data-product-card]').innerHTML;
-    const domElement = document.createElement('div');
+    const domElement = document.createElement('div');   
+    
    // вставка служебной информации в '%IMAGE%, '%LABEL%, %PRICE%
     domElement.innerHTML = template
         .replace('%ID%', product.id)
         .replace('%IMAGE%', product.image)
         .replace('%LABEL%', product.label)
-        .replace('%PRICE%', product.price);    
+        .replace('%PRICE%', numberToPrice(product.price));    
 
     return  domElement.firstElementChild
 }
@@ -46,4 +47,11 @@ function updateBasketBar (backet) {
     if (backet.products.length === 0) {
         emptyElement.style.display = '';
     }
+}
+
+function numberToPrice(n) {
+    const div = parseInt(n / 100);
+    const mod = (n % 100).toString().padEnd(2, '0');
+
+    return `${div}.${mod}`;
 }
