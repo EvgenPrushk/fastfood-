@@ -193,6 +193,37 @@
       console.log(database.basket);
   }
 
+  api.removeItemFromBasket = function removeItemFromBasket (productId) {
+    // проходимся по всем элементам корзины
+    for (const item of database.basket.products) {
+      // если пришедший товар совпадает с товаром, который находиться в корзине,
+      // то мы уменьшаем колличество
+      if (item.productId = productId) {
+        // уменьшаем его колличество на единицу
+        item.count--;
+        break;
+      }
+    }
+      // хочу оставить в корзине, только те продукты у которых count >= 1
+      database.basket.products = database.basket.products.filter(x => x.count > 0);
+      //  пересчитаем колличество элементов в корзине
+      let totalCoast = 0;
+      for (const item of database.basket.products) {
+        const product = database.products.find(x => x.id === item.productId);
+        totalCoast += product.price * item.count;
+      }
+
+      database.basket.totalCoast = totalCoast;
+
+  }
+
+  api.reinit = function reinit () {
+    database.basket = {
+      totalCoast: 0,
+      products: [],
+    }
+  }
+
   window.database = api;
 
   function getCopy(obj) {

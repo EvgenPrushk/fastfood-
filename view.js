@@ -13,6 +13,21 @@ function getProductCard(product, count = 0) {
 
         return domElement.firstElementChild
     }
+
+    else {
+        const template = document.querySelector('[data-product-card-smart]').innerHTML;
+        const domElement = document.createElement('div');
+
+        // вставка служебной информации в '%IMAGE%, '%LABEL%, %PRICE%
+        domElement.innerHTML = template
+        .replace('%ID%', product.id)
+        .replace('%COUNT%', count)
+        .replace('%IMAGE%', product.image)
+        .replace('%LABEL%', product.label)
+        .replace('%PRICE%', numberToPrice(product.price))       
+
+        return domElement.firstElementChild
+    }
 }
 
 // вставляет группы

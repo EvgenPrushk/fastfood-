@@ -113,7 +113,7 @@
                 </div>
                 <div class="basket" data-basket-full>
                     <span>Колличество товаров : <span data-basket-counts></span></span>
-                    <button class="btn btn-success">Купить за <span data-basket-totalcost>р.</span></button>
+                    <button class="btn btn-success" data-buy>Купить за <span data-basket-totalcost>р.</span></button>
                 </div>
             </div>
         </div>
@@ -129,19 +129,19 @@
 
     <template data-menu-group>    
         <div class="list-group-item" data-group-id="%ID%">
-            <img src="%IMAGE%" class="group">
+            <img src="" class="group">
             <p class="text-center">%LABEL%</p>
         </div>
     </template>
 
     <template data-product-card-smart>
-        <div class="card menu-product">
-            <img src="assets/apple.jpg">
-            <h4 class="text-center">Яблоко <span class="price">14.55</span></h4>
+        <div class="card menu-product" data-product-id="%ID%">
+            <img src="%IMAGE%">
+            <h4 class="text-center">%LABEL%<span class="price">%PRICE%</span></h4>
             <div class="btn-group">
-                <button class="btn btn-danger">-</button>
-                <button class="btn disabled">2</button>
-                <button class="btn btn-success">+</button>
+                <button class="btn btn-danger" data-remove-from-basket>-</button>
+                <button class="btn disabled">%COUNT%</button>
+                <button class="btn btn-success" data-add-to-basket>+</button>
             </div>
         </div>    
     </template>
