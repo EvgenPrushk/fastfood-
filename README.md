@@ -12,4 +12,4 @@
 4. ООП и классы;
 5. Работа с шаблонами и дата-метками;
 
-[Ссылка на выполненное задание](https://evgenprushk.github.io/fastfood-/)
+[Ссылка на выполненное задание](https://evgenprushk.github.io/fastfood-/index.html/)
